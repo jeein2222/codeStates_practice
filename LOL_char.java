@@ -1,5 +1,6 @@
 package codeStates;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -72,11 +73,11 @@ class LoL_char {
         //입력 메시지와 함께, 게임에 필요한 유닛의 정보를 입력받습니다.
         System.out.print("[시스템] 유닛 [이름] 을 입력해 주세요 :");
         String name = sc.next();
-        System.out.print("[시스템] 유닛 [공격력] 을 입력해 주세요(Ex 50) :");
+        System.out.print("[시스템] 유닛 [공격력] 을 입력해 주세요(Ex 5) :");
         String ad = sc.next();
         System.out.print("[시스템] 유닛 [방어력] 을 입력해 주세요(Ex 1) :");
         String def = sc.next();
-        System.out.print("[시스템] 유닛 [체력] 을 입력해 주세요(Ex 100) :");
+        System.out.print("[시스템] 유닛 [체력] 을 입력해 주세요(Ex 10) :");
         String hp = sc.next();
 
         // 입력된 값은 user_info()에 전달하여 줍니다.
@@ -93,10 +94,9 @@ class LoL_char {
         //TODO:
         System.out.println("[안내] 생성된 유닛 정보는 다음과 같습니다.");
         System.out.println("[안내] " + user[0] + " 유닛이 게임에 참여하였습니다.");
-        System.out.println("[공격력] : " + user[1]);
-        System.out.println("[방어력] : " + user[2]);
-        System.out.println("[체력] : " + user[3]);
-
+        System.out.println("[공격력] : " + user[1]+"("+ "🟦".repeat(Integer.parseInt(user[1]))+")");
+        System.out.println("[방어력] : " + user[2]+"("+ "🟩".repeat(Integer.parseInt(user[2]))+")");
+        System.out.println("[체력] : " + user[3] + "("+ "🟥".repeat(Integer.parseInt(user[3]))+")");
     }
 
     /**
@@ -130,16 +130,17 @@ class LoL_char {
         // 공격 정책 수식 : 적군 체력 -= 아군 유닛 공격력 / 적군 유닛 방어력
         //TODO:
         if(me_info_int[2]==0){
-            System.out.println("더 이상 공격할 수 없습니다.");
+            System.out.println("더 이상 공격할 수 없습니다.(체력:❌) 게임을 종료합니다.");
             System.exit(0);
         }
         else if(enemy[2]==0){
-            System.out.println("[안내] 상대 유닛이 제거되었습니다.");
+            System.out.println("[안내] 상대 유닛이 제거되었습니다.🤪 게임을 종료합니다.");
             System.exit(0);
         }else{
             System.out.println("[안내] "+me.getName()+"유닛이 [공격] 하였습니다.");
             enemy[2]-=me_info_int[0]/enemy[1];
-            System.out.println("[안내] 상대 유닛 "+you.getName()+"의 남은 [체력]은 "+enemy[2]+" 입니다.");
+            System.out.println("[안내] 상대 유닛 "+you.getName()+"의 남은 [체력]은 "+enemy[2]+" 입니다."
+                    +"("+ "🟥".repeat(enemy[2])+")");
             you.setHp(Integer.toString(enemy[2]));
         }
     }

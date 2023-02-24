@@ -19,7 +19,7 @@ public class LOL_Program {
         while(true){
             System.out.println("-----------------------------------");
             Scanner sc=new Scanner(System.in);
-            System.out.print("[안내] 공격할 유닛의 이름을 입력하세요.");
+            System.out.print("[안내] 공격할 유닛의 이름을 입력하세요.:");
             String name=sc.next();
             if(name.equals(player1.getName())){
                 player1.attack(player1.user_info_int(player1.get_user_info()),player2.user_info_int(player2.get_user_info()),player1,player2);
