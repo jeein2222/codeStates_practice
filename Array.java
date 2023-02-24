@@ -1,11 +1,9 @@
 package codeStates;
 
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 public class Array {
     public int getFirstElement(int[] arr) {
-        // TODO:
         if(arr.length==0) return -1;
         return arr[0];
     }
