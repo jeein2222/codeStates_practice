@@ -95,7 +95,7 @@ class LoL_char {
         System.out.println("[안내] 생성된 유닛 정보는 다음과 같습니다.");
         System.out.println("[안내] " + user[0] + " 유닛이 게임에 참여하였습니다.");
         System.out.println("[공격력] : " + user[1]+"("+ "🟦".repeat(Integer.parseInt(user[1]))+")");
-        System.out.println("[방어력] : " + user[2]+"("+ "🟩".repeat(Integer.parseInt(user[2]))+")");
+        System.out.println("[방어력] : " + user[2]+"("+ "🟨".repeat(Integer.parseInt(user[2]))+")");
         System.out.println("[체력] : " + user[3] + "("+ "🟥".repeat(Integer.parseInt(user[3]))+")");
     }
 
