@@ -1,6 +1,9 @@
 package codeStates;
 
-class Outer {//외부 클래스
+/*
+    지역 내부 클래스
+ */
+class Outer3 {//외부 클래스
     private int num1=1; //외부 클래스 인스턴스 변수
     private static int sNum=2; //외부 클래스 정적 변수
 
@@ -24,9 +27,9 @@ class Outer {//외부 클래스
 
 }
 
-public class InnerClassExample{
+public class LocalInnerClassExample{
     public static void main(String[] args) {
-        Outer outer=new Outer();
+        Outer3 outer=new Outer3();
         outer.test();
     }
 }
