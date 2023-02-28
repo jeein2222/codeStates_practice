@@ -27,7 +27,7 @@ class GirlFriend extends Friend{
     }
 }
 
-public class PolymorphismExample {
+public class PolymorphismExample1 {
     public static void main(String[] args) {
         Friend friend = new Friend();//객체 타입과 참조변수 타입 일치
         BoyFriend boyFriend = new BoyFriend();
