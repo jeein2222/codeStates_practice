@@ -4,7 +4,7 @@ import codeStates.burgerqueen.product.subproduct.Drink;
 import codeStates.burgerqueen.product.subproduct.Hamburger;
 import codeStates.burgerqueen.product.subproduct.Side;
 
-//상품 정보
+//상품 정보 저장
 public class ProductRepository {
     Product[] products={
             new Hamburger(1, "새우버거", 3500, 500, false, 4500),
