@@ -5,6 +5,7 @@ import codeStates.burgerqueen.product.subproduct.Drink;
 import codeStates.burgerqueen.product.subproduct.Hamburger;
 import codeStates.burgerqueen.product.subproduct.Side;
 
+//메뉴출력
 public class Menu {
     private Product[] products;
 
