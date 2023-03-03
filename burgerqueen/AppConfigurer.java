@@ -5,10 +5,10 @@ import codeStates.burgerqueen.discount.discountCondition.Discount;
 import codeStates.burgerqueen.discount.discountCondition.DiscountCondition;
 import codeStates.burgerqueen.discount.discountCondition.KidDiscountCondition;
 import codeStates.burgerqueen.discount.discountPolicy.FixedAmountDiscountPolicy;
+import codeStates.burgerqueen.discount.discountPolicy.FixedRateDiscountPolicy;
 import codeStates.burgerqueen.product.ProductRepository;
 
 public class AppConfigurer {
-
     private Cart cart = new Cart(productRepository(), menu());//싱글톤 패턴
     public ProductRepository productRepository(){
         return new ProductRepository();
@@ -23,7 +23,7 @@ public class AppConfigurer {
 
     public Discount discount(){
         return new Discount(new DiscountCondition[]{
-                new CozDiscountCondition(new FixedAmountDiscountPolicy(10)),
+                new CozDiscountCondition(new FixedRateDiscountPolicy(10)),
                 new KidDiscountCondition(new FixedAmountDiscountPolicy(500))
         });
     }
