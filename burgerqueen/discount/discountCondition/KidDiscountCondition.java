@@ -5,6 +5,7 @@ import codeStates.burgerqueen.discount.discountPolicy.FixedAmountDiscountPolicy;
 
 import java.util.Scanner;
 
+//할인 조건2 : 나이가 20 미만인가
 public class KidDiscountCondition implements DiscountCondition{
     private boolean isSatisfied;
     private DiscountPolicy discountPolicy;
