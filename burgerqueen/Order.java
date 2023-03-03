@@ -16,7 +16,6 @@ public class Order {
         this.cart=cart;
         this.discount=discount;
     }
-
     //주문 내역 출력
     public void makeOrder(){
         int totalPrice=cart.calculateTotalPrice();
