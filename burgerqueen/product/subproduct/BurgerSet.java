@@ -2,6 +2,7 @@ package codeStates.burgerqueen.product.subproduct;
 
 import codeStates.burgerqueen.product.Product;
 
+//버거세트
 public class BurgerSet extends Product {
     private Hamburger hamburger;//포함관계
     private Side side;
