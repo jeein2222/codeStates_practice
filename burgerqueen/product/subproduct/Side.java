@@ -2,6 +2,8 @@ package codeStates.burgerqueen.product.subproduct;
 
 import codeStates.burgerqueen.product.Product;
 
+
+//사이드
 public class Side extends Product {
     private int ketchup;
 
