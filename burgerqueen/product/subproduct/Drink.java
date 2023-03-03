@@ -2,6 +2,7 @@ package codeStates.burgerqueen.product.subproduct;
 
 import codeStates.burgerqueen.product.Product;
 
+//음료 클래스
 public class Drink extends Product {
     private boolean hasStraw;
 
