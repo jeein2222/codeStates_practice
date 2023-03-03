@@ -1,5 +1,6 @@
 package codeStates.burgerqueen.product;
 
+//상품 정보
 public abstract class Product {
     private int id; //고유번호
     private String name; //이름
