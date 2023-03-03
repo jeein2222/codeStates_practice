@@ -1,5 +1,8 @@
-package codeStates.burgerqueen.discount.discountCondition;
+package codeStates.burgerqueen.discount;
 
+import codeStates.burgerqueen.discount.discountCondition.DiscountCondition;
+
+//할인에 대한 로직 처리
 public class Discount {
     private DiscountCondition[] discountConditions;
 
