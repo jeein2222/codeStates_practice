@@ -2,6 +2,8 @@ package codeStates.burgerqueen.product.subproduct;
 
 import codeStates.burgerqueen.product.Product;
 
+
+//버거 클래스
 public class Hamburger extends Product {
 
     private boolean isBurgerSet;
