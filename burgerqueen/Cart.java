@@ -65,8 +65,6 @@ public class Cart {
         System.out.printf("[📣] %s를(을) 장바구니에 담았습니다.\n", product.getName());
     }
 
-
-
     protected void printCartItemDetails(){
         for(Product product :items){
             if(product instanceof BurgerSet){
