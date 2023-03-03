@@ -1,12 +1,6 @@
 package codeStates.burgerqueen;
 
-import codeStates.burgerqueen.discount.discountCondition.CozDiscountCondition;
-import codeStates.burgerqueen.discount.discountCondition.Discount;
-import codeStates.burgerqueen.discount.discountCondition.DiscountCondition;
-import codeStates.burgerqueen.discount.discountCondition.KidDiscountCondition;
-import codeStates.burgerqueen.discount.discountPolicy.DiscountPolicy;
-import codeStates.burgerqueen.discount.discountPolicy.FixedAmountDiscountPolicy;
-import codeStates.burgerqueen.discount.discountPolicy.FixedRateDiscountPolicy;
+import codeStates.burgerqueen.discount.Discount;
 
 public class Order {
     private Cart cart;

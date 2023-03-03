@@ -1,11 +1,5 @@
 package codeStates.burgerqueen;
 
-import codeStates.burgerqueen.discount.discountCondition.CozDiscountCondition;
-import codeStates.burgerqueen.discount.discountCondition.Discount;
-import codeStates.burgerqueen.discount.discountCondition.DiscountCondition;
-import codeStates.burgerqueen.discount.discountCondition.KidDiscountCondition;
-import codeStates.burgerqueen.discount.discountPolicy.FixedAmountDiscountPolicy;
-import codeStates.burgerqueen.product.Product;
 import codeStates.burgerqueen.product.ProductRepository;
 
 import java.util.Scanner;

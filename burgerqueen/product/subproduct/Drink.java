@@ -13,10 +13,10 @@ public class Drink extends Product {
 
     public Drink(Drink drink){//깊은 복사를 해주는 복사 생성자
         super(drink.getName(), drink.getPrice(), drink.getKcal());
-        this.hasStraw= drink.hasStraw();
+        this.hasStraw= drink.isHasStraw();
     }
 
-    public boolean hasStraw(){
+    public boolean isHasStraw(){
         return hasStraw;
     }
 

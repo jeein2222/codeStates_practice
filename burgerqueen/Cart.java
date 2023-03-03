@@ -43,6 +43,7 @@ public class Cart {
         //옵션 설정
         chooseOption(product);
 
+
         //product가 Hamburger의 인스턴스이고, isBurgetSet이 true이면 세트 구성
         if(product instanceof Hamburger){
             Hamburger hamburger = (Hamburger) product;
@@ -56,10 +57,11 @@ public class Cart {
         else if(product instanceof Drink) newProduct = new Drink((Drink) product);
         else newProduct = product;
 
+
         //items에 product 추가
         Product[] newItems = new Product[items.length + 1];
         System.arraycopy(items, 0, newItems, 0, items.length);
-        newItems[newItems.length-1]=product;
+        newItems[newItems.length-1]=newProduct;
         items = newItems;
 
         System.out.printf("[📣] %s를(을) 장바구니에 담았습니다.\n", product.getName());
@@ -76,7 +78,7 @@ public class Cart {
                         burgerSet.getSide().getName(),
                         burgerSet.getSide().getKetchup(),
                         burgerSet.getDrink().getName(),
-                        burgerSet.getDrink().hasStraw() ? "있음" : "없음"
+                        burgerSet.getDrink().isHasStraw() ? "있음" : "없음"
                 );
             }
             else if(product instanceof Hamburger){
@@ -99,7 +101,7 @@ public class Cart {
                         "   %-8s %6d원 (빨대 %s)\n",
                         product.getName(),
                         product.getPrice(),
-                        ((Drink) product).hasStraw() ? "있음" : "없음"
+                        ((Drink) product).isHasStraw() ? "있음" : "없음"
                 );
             }
         }
@@ -122,7 +124,8 @@ public class Cart {
                     ((Hamburger) product).getBurgerSetPrice()
             );
             input = sc.nextLine();
-            if(input.equals("2")) ((Hamburger) product).setIsBurgerSet(true);
+            if(input.equals("1")) ((Hamburger) product).setIsBurgerSet(false);
+            else if(input.equals("2")) ((Hamburger) product).setIsBurgerSet(true);
         }
         else if(product instanceof Side){
             System.out.println("케첩은 몇개가 필요하신가요?");
@@ -132,7 +135,10 @@ public class Cart {
         else if(product instanceof Drink){
             System.out.println("빨대가 필요하신가요? (1)_예 (2)_아니오");
             input = sc.nextLine();
-            if(input.equals("2")) ((Drink) product).setHasStraw(false);
+
+            if(input.equals("1")) ((Drink) product).setHasStraw(true);
+            else if(input.equals("2")) ((Drink) product).setHasStraw(false);
+
         }
     }
 
