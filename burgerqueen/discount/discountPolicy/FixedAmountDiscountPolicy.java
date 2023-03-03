@@ -1,5 +1,6 @@
 package codeStates.burgerqueen.discount.discountPolicy;
 
+//고정 금액 할인 정책
 public class FixedAmountDiscountPolicy implements DiscountPolicy{
     //할인 금액
     private int discountAmount;
