@@ -5,6 +5,7 @@ import codeStates.burgerqueen.discount.discountPolicy.FixedRateDiscountPolicy;
 
 import java.util.Scanner;
 
+//할인 조건 1 : 코드스테이츠 학생인가
 public class CozDiscountCondition implements DiscountCondition{
     private boolean isSatisfied;
     private DiscountPolicy discountPolicy;
