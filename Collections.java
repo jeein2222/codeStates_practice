@@ -5,60 +5,48 @@ import java.util.*;
 public class Collections {
     //Collection 연습문제
     public ArrayList<Integer> makeArrayList() {
-//        ArrayList<Integer> list=new ArrayList<>(Arrays.asList(1,2,3,4,5));
         ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 1; i <= 5; i++)
-            list.add(i);
+        for (int i = 1; i <= 5; i++) list.add(i);
         return list;
     }
 
     public Integer getNthElement(ArrayList<Integer> arrayList, int index) {
-        //TODO..
-        if (arrayList.size() == 0) return null;
-        return arrayList.get(index);
-
+        return arrayList.isEmpty() || index<0 || index>=arrayList.size() ? null: arrayList.get(index);
     }
 
     public String getLastElement(ArrayList<String> arrayList) {
-        //TODO..
         if (arrayList.size() == 0) return null;
         return arrayList.get(arrayList.size() - 1);
     }
 
     public ArrayList<String> addLast(ArrayList<String> arrayList, String str) {
-        //TODO..
         arrayList.add(str);
         return arrayList;
     }
 
     public ArrayList<Integer> addNth(ArrayList<Integer> arrayList, int index, int n) {
-        //TODO..
         if (index < 0 || index >= arrayList.size()) return null;
         arrayList.add(index, n);
         return arrayList;
     }
 
     public ArrayList<String> modifyNthElement(ArrayList<String> arrayList, int index, String str) {
-        //TODO..
         if (index < 0 || index >= arrayList.size()) return null;
         arrayList.set(index, str);
         return arrayList;
     }
 
     public Integer removeFromFront(ArrayList<Integer> arrayList) {
-        //TODO..
         if (arrayList.size() == 0) return null;
         return arrayList.remove(0);
     }
 
     public String removeFromNth(ArrayList<String> arrayList, int index) {
-        //TODO..
         if (index < 0 || index >= arrayList.size()) return null;
         return arrayList.remove(index);
     }
 
     public ArrayList<Integer> removeFromBackOfNew(ArrayList<Integer> arrayList) {
-        //TODO..
         if (arrayList.size() == 0) return null;
 
         ArrayList<Integer> newArrayList = new ArrayList<>();
@@ -68,7 +56,6 @@ public class Collections {
     }
 
     public List<String> arrayToArrayList(String[] arr) {
-        //TODO..
         if (arr.length == 0) return null;
         return new ArrayList<String>(Arrays.asList(arr));
     }
@@ -79,8 +66,6 @@ public class Collections {
         return arrayList;
     }
     public int sumAllElements(ArrayList<Integer> arrayList) {
-        //TODO..
-        if(arrayList.size()==0) return 0;
         int sum=0;
         Iterator it=arrayList.iterator();
         while(it.hasNext()){
@@ -109,15 +94,38 @@ public class Collections {
         //TODO..
         return hashMap.size();
     }
-    public int addOddValues(HashMap<Character, Integer> hashMap) {
-        //TODO..
-        Set<Character> keySet=hashMap.keySet();
-        Iterator it=keySet.iterator();
+    public int addOddValuesKey(HashMap<Character, Integer> hashMap) {
+        //keySet을 이용해서 푸는 방법
         int sum=0;
+        Set<Character> keySet=hashMap.keySet();
+        Iterator<Character> it=keySet.iterator();
+
         while(it.hasNext()){
             int value=hashMap.get(it.next());
-            if(value%2==0)
-                sum+=value;
+            if(value%2==0) sum+=value;
+        }
+        return sum;
+    }
+    public int addOddValuesEntrySet(HashMap<Character, Integer> hashMap) {
+        //EntrySet으로 문제 풀기
+        Set<Map.Entry<Character,Integer>> entrySet = hashMap.entrySet();
+        Iterator<Map.Entry<Character, Integer>> it = entrySet.iterator();
+        int sum=0;
+        while(it.hasNext()){
+            int value=it.next().getValue();
+            if(value%2==0) sum+=value;
+        }
+        return sum;
+    }
+    public int addOddValuesValue(HashMap<Character, Integer> hashMap) {
+        //Values
+        int sum=0;
+        Collection<Integer> values = hashMap.values();
+        Iterator<Integer> it = values.iterator();
+
+        while(it.hasNext()){
+            int num=it.next();
+            if(num%2==0) sum+=num;
         }
         return sum;
     }
@@ -147,14 +155,10 @@ public class Collections {
         return false;
     }
     public HashMap<String, Integer> select(String[] arr, HashMap<String, Integer> hashMap) {
-        //TODO..
         HashMap<String, Integer> newHashMap=new HashMap<>();
 
-        for(String str:arr){
-            if(hashMap.containsKey(str)){
-                newHashMap.put(str,hashMap.get(str));
-            }
-        }
+        for(String str:arr)
+            if(hashMap.containsKey(str)) newHashMap.put(str,hashMap.get(str));
 
         return newHashMap;
     }
@@ -163,12 +167,16 @@ public class Collections {
         if(str.length()==0) return null;
         HashMap<Character,Integer> hashMap=new HashMap<>();
 
-
         for(char c: str.toCharArray()){
-            if(hashMap.containsKey(c)) hashMap.put(c,hashMap.get(c)+1);
-            else hashMap.put(c,1);
+            hashMap.put(c,hashMap.getOrDefault(c, 0)+1);
         }
 
         return hashMap;
     }
+
+    public static void main(String[] args) {
+        Collections c=new Collections();
+        System.out.println(c.countAllCharacter("abcddde"));
+    }
+
 }
