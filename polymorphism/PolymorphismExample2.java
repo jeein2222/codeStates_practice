@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.polymorphism;
 //다형성 예제 -> 매개변수의 다형성(상위 클래스 타입의 매개변수)
 class Coffee{
     int price;
