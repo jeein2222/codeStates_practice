@@ -5,7 +5,7 @@ import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-//배열 스트림 생성
+//배열 스트림 생성*
 public class ArraysStreamExample {
     public static void main(String[] args) {
         //문자열 배열 선언 및 할당
