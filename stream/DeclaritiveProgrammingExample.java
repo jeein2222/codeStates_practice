@@ -3,7 +3,7 @@ package codeStates.stream;
 import java.util.List;
 import java.util.stream.Stream;
 
-//명령형 프로그래밍 vs 선언형 프로그래밍
+//명령형 프로그래밍 vs 선언형 프로그래밍*
 public class DeclaritiveProgrammingExample {
     public static void main(String[] args) {
         List<Integer> numbers = List.of(1, 2, 4, 5, 6, 8);
