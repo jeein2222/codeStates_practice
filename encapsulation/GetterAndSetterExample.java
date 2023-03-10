@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.encapsulation;
 
 /*
     getter,setter를 이용하면 외부로부터 데이터를 효과적으로 보호하면서 의도하는 값으로
