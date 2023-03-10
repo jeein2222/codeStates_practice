@@ -3,7 +3,7 @@ package codeStates.stream;
 import java.util.*;
 import java.util.stream.Stream;
 
-//컬렉션 스트림 생성
+//컬렉션 스트림 생성*
 /*
     컬렉션 최상위 클래스인 Collection에 정의된 stream() 메서드를 사용하여 스트림 생성 가능
  */
