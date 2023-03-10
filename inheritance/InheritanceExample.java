@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.inheritance;
 
 class Person{
     String name;
