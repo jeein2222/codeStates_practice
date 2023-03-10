@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.lambda;
 
 class Phone{}
 class IPhone extends Phone{}
