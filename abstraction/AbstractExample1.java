@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.abstraction;
 
 abstract class Animal{//추상 클래스
     public String kind;
