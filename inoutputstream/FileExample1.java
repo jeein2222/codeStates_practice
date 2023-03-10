@@ -3,7 +3,7 @@ package codeStates.inoutputstream;
 import java.io.File;
 import java.io.IOException;
 
-public class FileExample {
+public class FileExample1 {
     public static void main(String[] args) throws IOException {
         File file1 = new File("../codestates.txt");
 
@@ -19,6 +19,7 @@ public class FileExample {
          */
         File file2 = new File("./", "newCodestates.txt");
         file2.createNewFile();
+
 
 
     }
