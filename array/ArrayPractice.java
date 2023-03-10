@@ -1,7 +1,8 @@
-package codeStates;
+package codeStates.array;
 
 import java.util.Arrays;
 
+//배열 연습문제
 public class ArrayPractice {
     public int getFirstElement(int[] arr) {
         if(arr.length==0) return -1;
