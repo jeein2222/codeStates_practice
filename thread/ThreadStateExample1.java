@@ -1,7 +1,7 @@
 package codeStates.thread;
 
 //스레드의 상태 변환
-public class ThreadStateExample {
+public class ThreadStateExample1 {
     public static void main(String[] args) {
         Thread thread1=new Thread(){
             public void run(){
