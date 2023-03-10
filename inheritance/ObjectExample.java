@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.inheritance;
 
 class ParentEx{//컴파일러가 extends Object 자동 추가
     /*
