@@ -1,8 +1,6 @@
-package codeStates;
+package codeStates.exceptionhandling;
 
-import java.time.chrono.MinguoDate;
-
-public class ExceptionTest {
+public class ExceptionTest1 {
     public static void main(String[] args) {
         try{
             Exception intendedException = new Exception("의도된 예외");
