@@ -3,7 +3,7 @@ package codeStates.stream;
 import java.util.Arrays;
 import java.util.Comparator;
 
-//Comparator, Comparable
+//Comparator, Comparable*
 public class ComparatorExample {
     public static void main(String[] args) {
         Student2[] students1 = new Student2[]{
