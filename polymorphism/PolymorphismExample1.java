@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.polymorphism;
 
 //다형성 예제 - 참조변수의 타입 변환
 class Friend{
