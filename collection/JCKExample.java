@@ -1,7 +1,8 @@
-package codeStates;
+package codeStates.collection;
 
 import java.util.*;
 
+//JCK
 public class JCKExample {
     public static void main(String[] args) {
         //List : ArrayList, LinkedList, Stack, Vector
