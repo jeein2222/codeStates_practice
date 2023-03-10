@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.exceptionhandling;
 
 public class ThrowExceptionTest {
     public static void main(String[] args) {
