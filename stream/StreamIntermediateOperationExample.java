@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.IntStream;
 
-//스트림의 중간 연산
+//스트림의 중간 연산*
 public class StreamIntermediateOperationExample {
     public static void main(String[] args) {
         //1. distince : 중복 제거
