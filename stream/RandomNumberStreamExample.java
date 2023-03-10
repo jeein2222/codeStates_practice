@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
-//임의의 수 스트림 생성
+//임의의 수 스트림 생성*
 public class RandomNumberStreamExample {
     public static void main(String[] args) {
         //무한으로 난수 생성 -> infinite stream
