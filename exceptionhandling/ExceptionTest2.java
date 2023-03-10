@@ -1,5 +1,6 @@
 package codeStates.exceptionhandling;
 
+//예외 처리
 public class ExceptionTest2 {
     public static void main(String[] args) {
 
