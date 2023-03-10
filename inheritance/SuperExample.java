@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.inheritance;
 
 class SuperClass{
     int count=20;
