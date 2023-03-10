@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 /*
     Stream은 배열, 컬렉션의 저장 요소를 하나씩 참조해서 람다식으로 처리할 수 있도록 해주는 반복자
     스트림을 사용하면 List, Set, Map 배열 등 다양한 데이터 소스로부터 스트림을 만들 수 있고,
-    이를 표준화된 방법으로 다룰 수 있음.
+    이를 표준화된 방법으로 다룰 수 있음.*
  */
 public class StreamExample1 {
     public static void main(String[] args) {
