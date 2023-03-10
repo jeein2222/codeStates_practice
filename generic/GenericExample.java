@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.generic;
 
 /*
     Generic은 클래스나 메서드의 코드를 작성할 때, 타입을 구체적으로 지정하는 것이 아니라, 추후에 지정할 수 있도록 일반화해두는 것.
