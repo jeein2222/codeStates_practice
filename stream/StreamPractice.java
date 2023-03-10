@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+
+//스트림 연습문제*
 public class StreamPractice {
     //1번
     public int computeSumOfAllElements(List<Integer> list){
