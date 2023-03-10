@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.inheritance;
 /*
     익명 객체
     익명 객체는 클래스를 상속하거나 인터페이스를 구현해야만 생성 가능, 클래스를 상속해서 만들 경우 익명 자식 객체,
