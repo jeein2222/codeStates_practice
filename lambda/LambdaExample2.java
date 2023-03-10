@@ -1,8 +1,7 @@
-package codeStates;
+package codeStates.lambda;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
-import java.util.function.IntBinaryOperator;
 
 class Member{
     private String name;
