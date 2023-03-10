@@ -1,4 +1,4 @@
-package codeStates.inheritance;
+package codeStates.innerclass;
 /*
     인스턴스 내부 클래스
  */
