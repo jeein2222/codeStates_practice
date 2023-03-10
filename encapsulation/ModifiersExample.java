@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.encapsulation;
 /*
     접근 지정자 : 외부로부터 데이터를 보호하고 불필요하게 데이터가 노출되는 것 방지.
     클래스 : public , default
