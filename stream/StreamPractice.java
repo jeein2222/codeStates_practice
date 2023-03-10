@@ -20,7 +20,7 @@ public class StreamPractice {
         return list.stream()
                 .mapToInt(a->a)
                 .average()
-                .orElse(0);
+                .orElse(0);//-> 값이 없는 경우 0을 리턴, 값이 있으면 getAsDouble과 똑같이 동작
     }
     //3번
     public List<Integer> filterOddNumbers(List<Integer> list){
@@ -32,7 +32,7 @@ public class StreamPractice {
     public long computeCountOfFemaleMember(List<Member> members) {
         //구현된 Member 클래스의 getName(), getGender() 메소드로 해당 Member 클래스의 name, gender를 확인할 수 있습니다.
         return members.stream()
-                .filter(e->e.gender.equals("Female"))
+                .filter(e->e.getGender().equals("Female"))
                 .count();
     }
     //5번
@@ -50,7 +50,7 @@ public class StreamPractice {
         return names.stream()
                 .distinct()
                 .sorted()
-                .toArray(String[] :: new);
+                .toArray(String[] :: new);//.toArray(size -> new String[size]);
     }
     //7번
     public static String[] filterName(List<String> names) {
@@ -70,14 +70,16 @@ public class StreamPractice {
     }
     //9번
     public int findLongestLength(String[] strArr) {
+//        return Arrays.stream(strArr)
+//                .reduce("",(s1,s2)->{
+//                    return s1.length()>s2.length() ? s1:s2;
+//                }).length();
         return Arrays.stream(strArr)
-                .reduce("",(s1,s2)->{
-                    return s1.length()>s2.length() ? s1:s2;
-                }).length();
+                .mapToInt(s -> s.length())
+                .reduce(0, (a, b) -> a > b ? a : b);
     }
     //10번
     public List<String> mergeTwoStream(List<String> list1, List<String> list2) {
-        Stream<String> stream1=list1.stream();
         return Stream.concat(list1.stream(), list2.stream()).collect(Collectors.toList());
     }
     //11번
@@ -92,15 +94,12 @@ public class StreamPractice {
         if(temperature.length!=7) return false;
         return Arrays.stream(temperature)
                 .filter(e->e>=30)
-                .count()>=3 ? true : false;
+                .count()>=3 ;
     }
     //13번
     public List<String> findPeople(List<String> male, List<String> female, String lastName) {
         //TODO..
-        Stream<String> stream1=male.stream().distinct().filter(e->e.startsWith(lastName));
-        Stream<String> stream2=female.stream().distinct().filter(e->e.startsWith(lastName));
-
-        return Stream.concat(stream1,stream2).distinct().sorted().collect(Collectors.toList());
+        return Stream.concat(male.stream(),female.stream()).distinct().filter(e->e.startsWith(lastName)).sorted().collect(Collectors.toList());
     }
 
     public static void main(String[] args) {
