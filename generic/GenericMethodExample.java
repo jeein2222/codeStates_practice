@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.generic;
 
 class Basket<T>{//1.여기서 선언한 타입 매개변수 T와
     private T item;
