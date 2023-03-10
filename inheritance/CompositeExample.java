@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.inheritance;
 //포함관계
 
  class Employee{
