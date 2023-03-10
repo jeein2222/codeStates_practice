@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.polymorphism;
 
 interface Cover{
     void call();
