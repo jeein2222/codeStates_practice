@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.enumclass;
 
 enum Level{
     LOW,//0

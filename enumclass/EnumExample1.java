@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.enumclass;
 
 /*
     enum을 사용하면 여러 상수들을 보다 편리하게 선언하고 관리할 수 있게 하며,
