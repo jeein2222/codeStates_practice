@@ -3,6 +3,7 @@ package codeStates.lambda;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+//메서드 레퍼런스 -> 생성자 참조
 class Member{
     private String name;
     private String id;
@@ -29,9 +30,12 @@ class Member{
     }
 
 }
-public class LambdaExample {
+public class LambdaExample2 {
     public static void main(String[] args) throws Exception {
         /*
+            생성자 참조 문법
+            클래스 :: new
+
             Interface Function<T,R>
             T : type of input (arguments)
             R : tyep of result (return ~)
