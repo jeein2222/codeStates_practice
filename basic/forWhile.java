@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.basic;
 
 import java.util.Arrays;
 

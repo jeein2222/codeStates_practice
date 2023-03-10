@@ -1,6 +1,5 @@
-package codeStates;
+package codeStates.basic;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**

@@ -1,4 +1,4 @@
-package codeStates;
+package codeStates.basic;
 /*
     구간에 따라 다르게 계산.
     <=100 -> 60.7원
