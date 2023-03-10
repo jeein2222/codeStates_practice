@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
-//스트림 최종 연산
+//스트림 최종 연산*
 public class StreamTerminalOperation {
     public static void main(String[] args) {
         //1.기본 집계
