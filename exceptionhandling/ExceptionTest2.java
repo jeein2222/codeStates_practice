@@ -1,6 +1,6 @@
-package codeStates;
+package codeStates.exceptionhandling;
 
-public class ExceptionHandlingExample {
+public class ExceptionTest2 {
     public static void main(String[] args) {
 
         try{
