@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 //프린터
-public class Sol3 {
+public class Sol3_2 {
     /*
         buff:2 cap:10 docu:7 4 5 6
         1초 후 queue.add(7)
@@ -65,7 +65,7 @@ public class Sol3 {
         return count;
     }
     public static void main(String[] args) {
-        Sol3 s = new Sol3();
+        Sol3_2 s = new Sol3_2();
         System.out.println(s.queuePrinter(2, 10, new int[] {7,4,5,6}));
     }
 }
