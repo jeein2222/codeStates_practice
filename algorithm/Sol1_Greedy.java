@@ -1,37 +1,39 @@
 package codeStates.algorithm;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
-public class Sol1 {
+
+//짐 나르기
+public class Sol1_Greedy {
     public int movingStuff(int[] stuff, int limit) {
-        //stuff 배열 정렬하기(오름차순으로)
-        int[] newStuff = Arrays.stream(stuff).sorted().toArray();
+        //stuff를 가벼운 것부터 정렬
+        stuff = Arrays.stream(stuff).sorted().toArray();
 
-        //최대 2개를 묶을 수 있는 횟수
-        int count=0;
+        //쌍으로 묶이는 짐의 개수
+        int count = 0;
 
-        //가장 무거운 짐
-        int largeIdx=newStuff.length-1;
+        //가장 가벼운 짐부터 무거운 짐으로 이동할 index
+        int leftIdx=0;
 
-        //가장 가벼운 짐
-        int smallIdx=0;
+        //가장 무거운 집부터 가벼운 짐으로 이동할 index
+        int rightIdx=stuff.length-1;
 
-        while(largeIdx>smallIdx){
-            if(newStuff[smallIdx]+newStuff[largeIdx]<=limit){
+        while(leftIdx<rightIdx){
+            if(stuff[leftIdx]+stuff[rightIdx]<=limit){
                 count++;
-                smallIdx++;
-                largeIdx--;
+                leftIdx++;
+                rightIdx--;
             }else{
-                largeIdx--;
+                rightIdx--;
             }
         }
 
-        return newStuff.length-count;
+        return stuff.length-count;
+
     }
 
     public static void main(String[] args) {
-        Sol1 s = new Sol1();
+        Sol1_Greedy s = new Sol1_Greedy();
         System.out.println(s.movingStuff(new int[]{70, 50, 80, 50}, 100));
     }
 }
