@@ -1,6 +1,7 @@
 package codeStates.algorithm;
 
-public class Sol2 {
+//거스름돈
+public class Sol2_Greedy {
     public int partTimeJob(int k){
         int[] coins = {500, 100, 50, 10, 5, 1};
         int cnt=0;
