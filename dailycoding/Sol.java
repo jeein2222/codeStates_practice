@@ -143,11 +143,81 @@ public class Sol {
         }
         return result;
     }
+    public String[] removeExtremes(String[] arr) {
+        if(arr.length==0) return null;
+        String[] newArr = Arrays.copyOfRange(arr, 0, arr.length);
+        Arrays.sort(newArr, (s1, s2) -> s1.length() - s2.length());
 
+        int minLen = newArr[0].length();
+        int maxLen = newArr[newArr.length - 1].length();
+        boolean min=false;
+        boolean max=false;
+
+        ArrayList<String> list = new ArrayList<>();
+
+        for(int i=arr.length-1;i>=0;i--){
+            if(arr[i].length()==minLen && min==false){
+                min=true;
+            }
+            else if(arr[i].length()==maxLen && max==false){
+                max=true;
+            }else{
+                list.add(arr[i]);
+            }
+        }
+
+        Collections.reverse(list);
+        return list.stream().toArray(String[]::new);
+
+    }
+
+    public int[] reverseArr(int[] arr){
+//        if(arr.length==0) return new int[] {};
+//        else if(arr.length==1) return new int[]{arr[0]};
+//        else{
+//            int[] newArr = new int[arr.length];
+//            newArr[newArr.length-1] = arr[0];
+//            arr = Arrays.copyOfRange(arr, 1, arr.length);
+//            System.arraycopy(reverseArr(arr), 0, newArr, 0, arr.length);
+//            return newArr;
+//        }
+        if(arr.length==0) return new int[] {};
+        int[] head = Arrays.copyOfRange(arr, arr.length - 1, arr.length);
+        int[] tail = reverseArr(Arrays.copyOfRange(arr, 0, arr.length - 1));
+
+        int[] dest = new int[head.length + tail.length];
+        System.arraycopy(head, 0, dest, 0, head.length);
+        System.arraycopy(tail, 0, dest, head.length, tail.length);
+        return dest;
+    }
+
+    public String readVertically(String[] arr) {
+        int maxLength = Arrays.stream(arr).mapToInt(String::length).max().getAsInt();
+        String result = "";
+        for(int i=0;i<maxLength;i++){
+            for(int j=0;j<arr.length;j++){
+                try{
+                    result += arr[j].charAt(i);
+                }catch (StringIndexOutOfBoundsException e){
+                }
+
+            }
+        }
+        /*
+            "hello"
+            "world"
+            "nice"
+            "hi"
+         */
+        return result;
+    }
     public static void main(String[] args) {
         Sol s = new Sol();
-        System.out.println(s.ABCheck("HK9J6YjrAcMbq8qKrbS3EaPRT"));
-        System.out.println(s.insertDash("6734611997679419173"));
+        String result = s.readVertically(new String[]{
+                "hi",
+                "wolrd",
+        });
+        System.out.println(result);
     }
 
 }
