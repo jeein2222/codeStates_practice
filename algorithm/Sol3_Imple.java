@@ -1,6 +1,6 @@
 package codeStates.algorithm;
 
-public class Sol3 {
+public class Sol3_Imple {
 
     public boolean checkBoundary(int nx, int ny, int size){
         if(nx<0 || nx>size || ny<0 || ny>size) return false;
@@ -31,7 +31,7 @@ public class Sol3 {
         return sum;
     }
     public static void main(String[] args) {
-        Sol3 s = new Sol3();
+        Sol3_Imple s = new Sol3_Imple();
         int[][] board1 = new int[][]{
                 {0, 0, 0, 1},
                 {1, 1, 1, 0},
