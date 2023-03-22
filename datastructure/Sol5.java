@@ -8,23 +8,24 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class Sol5 {
     public boolean getDirections(int[][] matrix, int from, int to) {
         Queue<Integer> q = new LinkedList<>();
-        q.offer(from);
         boolean[] dp = new boolean[matrix.length];
-        dp[from]=true;
+        q.offer(from);
+        dp[from] = true;
 
-        while(!q.isEmpty()){
-            int curr = q.poll();
-            if(curr==to) return true;
+            while (!q.isEmpty()) {
+                int curr = q.poll();
+                if (curr == to) return true;
 
-            for(int i=0;i<matrix.length;i++){
-                if(matrix[curr][i]==1 && dp[i]==false){
-                    dp[i]=true;
-                    q.offer(i);
+                for (int i = 0; i < matrix.length; i++) {
+                    if (matrix[curr][i] == 1 && dp[i] == false) {
+                        dp[i] = true;
+                        q.offer(i);
+                    }
                 }
             }
-        }
         return false;
     }
+
     public static void main(String[] args) {
         Sol5 s = new Sol5();
         System.out.println(s.getDirections(new int[][]
