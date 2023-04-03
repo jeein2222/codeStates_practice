@@ -73,16 +73,12 @@ public class Sol6_permutation {
     }
     public static void main(String[] args) {
         Sol6_permutation p = new Sol6_permutation();
-        ArrayList<Integer[]> list=p.newChickenRecipe(new int[] {11, 1, 10, 1111111111, 10000}, 4);
+        ArrayList<Integer[]> list=p.newChickenRecipe(new int[] {11, 1, 10, 11111, 10000}, 4);
 
         if(list.size()>0){
             for(int i=0;i<list.size();i++){
                 System.out.println(Arrays.toString(list.get(i)));
             }
         }
-
     }
-
-
-
 }
