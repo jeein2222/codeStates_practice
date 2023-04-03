@@ -12,22 +12,45 @@ public class Sol5_permutation_with_repetition {
         String[] target = {"rock", "paper", "scissors"};
         String[] result = new String[r];
         ArrayList<String[]> list= new ArrayList<>();
-        permutation(0,r,target,result,list);
+        permutation_with_repetition(0,r,target,result,list);
         return list;
     }
 
-    public void permutation(int cnt,int r,String[] target ,String[] result,ArrayList<String[]> list){
+    public void permutation_with_repetition(int cnt,int r,String[] target ,String[] result,ArrayList<String[]> list){
         if(cnt==r){
             String[] newResult=result.clone();
             list.add(newResult);
+            System.out.println(newResult);
             return;
         }
-        for(int i=0;i<3;i++){
+        for(int i=0;i<target.length;i++){
             result[cnt] = target[i];
-            permutation(cnt+1,r,target,result,list);
+            permutation_with_repetition(cnt+1,r,target,result,list);
         }
     }
 
+    //reference
+    public ArrayList<String[]> rockPaperScissors2(int rounds){
+        ArrayList<String[]> outcomes = new ArrayList<>();
+        return permutation_with_repetition2(rounds, new String[]{}, outcomes);
+    }
+
+    public ArrayList<String[]> permutation_with_repetition2(int roundsToGo, String[] playedSoFar, ArrayList<String[]> outcomes ){
+        if(roundsToGo==0){
+            outcomes.add(playedSoFar);
+            return outcomes;
+        }
+        String[] rps = new String[]{"rock", "paper", "scissors"};
+
+        for(int i=0;i<rps.length;i++){
+            String currentPlay = rps[i];
+            String[] concatArray = Arrays.copyOf(playedSoFar, playedSoFar.length + 1);
+            concatArray[concatArray.length - 1] = currentPlay;
+
+            outcomes = permutation_with_repetition2(roundsToGo - 1, concatArray, outcomes);
+        }
+        return outcomes;
+    }
 
 
     public static void main(String[] args) {
