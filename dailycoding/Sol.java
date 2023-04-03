@@ -1,8 +1,8 @@
 package codeStates.dailycoding;
 
+import java.lang.reflect.Array;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class Sol {
     public HashMap<String, String> transformFirstAndLast(String[] arr) {
@@ -211,13 +211,385 @@ public class Sol {
          */
         return result;
     }
+
+    public boolean superIncreasing(int[] arr){
+        int[] newArr;
+        for(int i=arr.length-1;i>0;i--){
+            newArr = Arrays.copyOfRange(arr, 0, i);
+            if(arr[i]<=Arrays.stream(newArr).sum()) return false;
+        }
+        return true;
+
+//        if(arr.length == 0) return false;
+//        int sum = arr[0];
+//
+//        for(int i = 1; i < arr.length; i++) {
+//            if(arr[i] <= sum) {
+//                return false;
+//            }
+//            sum = sum + arr[i];
+//        }
+//        return true;
+    }
+
+    public Integer modulo(int num1, int num2) {
+        if(num2 ==0 ) return null;
+        else if(num1==0) return 0;
+        else{
+            while(num1>=num2){
+                num1 -= num2;
+            }
+            return num1;
+        }
+    }
+
+    public boolean isIsogram(String str) {
+//        char[] arr = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z'};
+//        long cnt=0;
+//        boolean result=true;
+//        for(int i=0;i<arr.length;i++){
+//            int finalI = i;
+//            cnt=str.toLowerCase().chars().filter(c->c==arr[finalI]).count();
+//            if(cnt>=2) {
+//                result=false;
+//                break;
+//            }
+//        }
+//        return result;
+
+        if(str.length()==0) return true;
+        HashMap<Character, String> cache = new HashMap<>();
+        str = str.toLowerCase();
+        for(int i=0;i<str.length();i++){
+            if(cache.containsKey(str.charAt(i))){
+                return false;
+            }
+            cache.put(str.charAt(i), "Exists");
+        }
+        return true;
+    }
+    public String computeSquareRoot(int num) {
+        return String.format("%.2f", sqrt(num));
+    }
+
+    public double sqrt(int num){
+        double x = 10;
+        for (int i = 0; i < 10; i++) {
+            x = 0.5 * (num / x + x);
+        }
+        return x;
+    }
+
+    public int numberSearch(String str) {
+        double sum = str.chars().filter(c -> Character.isDigit(c))
+                        .map(c->Character.getNumericValue(c)).sum();
+        long len = str.chars().filter(c -> !Character.isDigit(c) && c!=' ')
+                .count();
+        return (int) Math.round(sum / len);
+    }
+
+    public boolean checkBoundary(char c){
+        if(c>=97 && c<=122) return true;
+        else return false;
+    }
+    public String decryptCaesarCipher(String str, int secret) {
+        String result = "";
+        for(char c:str.toCharArray()){
+            if(c!=' '){
+                char newChar= (char) (c-secret);
+                if(!checkBoundary(newChar)){
+                    newChar+=26;
+                }
+                result+=newChar;
+            }else{
+                result+=c;
+            }
+        }
+        return result;
+    }
+
+    public String compressString(String str) {
+        String result = "";
+        if(str.length()==0) return result;
+
+        char[] arr = str.toCharArray();
+        int cnt=0;
+        char tmp = arr[0];
+
+
+        for(int i=0;i<str.length();i++){
+            if(arr[i]==tmp) cnt++;
+            else{
+                if(cnt>=3){
+                    result+=+cnt+""+tmp;
+                }else{
+                    for(int j=0;j<cnt;j++){
+                        result+=tmp;
+                    }
+                }
+                tmp = arr[i];
+                cnt=1;
+            }
+        }
+
+        //마지막 요소
+        if(cnt>=3){
+            result+=+cnt+""+tmp;
+        }else{
+            for(int j=0;j<cnt;j++){
+                result+=tmp;
+            }
+        }
+
+        return result;
+    }
+
+    public int largestProductOfThree(int[] arr) {
+        Arrays.sort(arr);
+        int cnt=0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]<0){
+                cnt++;
+            }
+        }
+
+        if(cnt>=2 && cnt!=arr.length){
+            return arr[0] * arr[1] * arr[arr.length - 1];
+        }
+
+
+        return arr[arr.length - 1] * arr[arr.length - 2] * arr[arr.length - 3];
+    }
+
+    /*
+        2 1 5 4 3
+        1 2 4 3 5
+        1 2 3 4 5
+
+
+     */
+    public int[] bubbleSort(int[] arr) {
+        int tmp=0;
+        boolean isSorted=true;
+        for(int i=arr.length-1;i>=0;i--){
+            for(int j=0;j<i;j++){
+                if(arr[j]>arr[j+1]){
+                    tmp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j+1]=tmp;
+                    isSorted=false;
+                }
+            }
+            if(isSorted) return arr;
+        }
+        return arr;
+    }
+
+    //
+    /*
+        num=5  0 1 1 2 3 5
+        dp = {0,1, , , }
+     */
+    public int fibonacci(int num){
+        if(num==0 || num==1) return num;
+        int[] dp = new int[num+1];
+        dp[0]=0;
+        dp[1]=1;
+        return fibo(num, dp);
+    }
+
+    public int fibo(int num,int[] dp){
+        if(num==0 || num==1|| dp[num]>0) return dp[num];
+        else return dp[num]=fibo(num - 1,dp) + fibo(num - 2,dp);
+    }
+
+    public boolean isSubsetOf(int[] base, int[] sample) {
+        ArrayList<Integer> baseList = (ArrayList<Integer>) Arrays.stream(base).boxed().collect(Collectors.toList());
+        boolean isSubset=true;
+        for(int i=0;i<sample.length;i++){
+            if(!baseList.contains(sample[i])){
+                isSubset=false;
+                return isSubset;
+            }
+        }
+        return isSubset;
+    }
+
+    //거듭제곱 구하기
+    public long power(int base, int exponent) {
+        int result=1;
+        for(int i=0;i<exponent;i++){
+            if(result>=94906249) result=result%94906249;
+            result*=base;
+        }
+        if(result>=94906249) result=result%94906249;
+        return result;
+    }
+
+    public long power2(int base, int exponent){
+        //재귀함수로 동작합니다.
+        //exponent변수가 0이 될때까지 재귀를 돈 이후, 나머지 연산을 계산하고,
+        //해당 결과값을 사용하여 홀수일 경우 다시 연산하여 리턴합니다.
+        if(exponent == 0) return 1;
+
+        int half = exponent / 2;
+        long temp = power(base, half);
+        long result=(temp*temp)%94906249;
+
+        if(exponent%2==1) return (base*result)%94906249;
+        else return result;
+    }
+    /*
+                   1
+               2       3
+           4     5  7
+       6
+        */
+    public ArrayList<String> dfs(tree node) {
+        ArrayList<String> result = new ArrayList<>();
+        result.add(node.getValue());
+
+        if(node.getChildrenNode()!=null){
+            for(int i=0;i<node.getChildrenNode().size();i++){
+                ArrayList<String> curList = dfs(node.getChildrenNode().get(i));
+                result.addAll(curList);
+            }
+        }
+        return result;
+    }
+
+    public ArrayList<String> bfs(tree node) {
+        ArrayList<String> result = new ArrayList<>();
+        Queue<tree> q = new LinkedList<>();
+        q.add(node);
+
+        while(!q.isEmpty()){
+            tree curr = q.poll();
+            result.add(curr.getValue());
+            if(curr.getChildrenNode()!=null){
+                for(int i=0;i<curr.getChildrenNode().size();i++){
+                    q.add(curr.getChildrenNode().get(i));
+                }
+            }
+        }
+        return result;
+    }
+
+
+
+    //아래 클래스의 내용은 수정하지 말아야 합니다.
+    public static class tree {
+        private String value;
+        private ArrayList<tree> children;
+
+        public tree(String data) {
+            this.value = data;
+            this.children = null;
+        }
+
+        public tree addChildNode(tree node) {
+            if(children == null) children = new ArrayList<>();
+            children.add(node);
+            return children.get(children.size() - 1);
+        }
+
+        public String getValue() {      //현재 노드의 데이터를 반환
+            return value;
+        }
+
+        public ArrayList<tree> getChildrenNode() {
+            return children;
+        }
+    }
+
+    /*
+        (ab))
+     */
+
+    public boolean balancedBrackets(String str){
+        if(str.length()==0) return true;
+        String[] arr = str.split("");
+        String s = "";
+        Stack<String> stack = new Stack<>();
+        for(int i=0;i<arr.length;i++){
+            if(arr[i].equals(")")){
+                if(stack.isEmpty()) return false;
+                while(!stack.peek().equals("(")){
+                    s=stack.pop();
+                    if(s.equals("[")||s.equals("]")||s.equals("{")||s.equals("}")) return false;
+                }
+                stack.pop();
+            }else if(arr[i].equals("]")){
+                if(stack.isEmpty()) return false;
+                while(!stack.peek().equals("[")){
+                    stack.pop();
+                    if(s.equals("{")||s.equals("}")||s.equals("(")||s.equals(")")) return false;
+
+                }
+                stack.pop();
+            }else if(arr[i].equals("}")){
+                if(stack.isEmpty()) return false;
+                while(!stack.peek().equals("{")){
+                    stack.pop();
+                    if(s.equals("[")||s.equals("]")||s.equals("(")||s.equals(")")) return false;
+
+                }
+                stack.pop();
+            }
+            else{
+                stack.add(arr[i]);
+            }
+        }
+        if(stack.isEmpty()) return true;
+        else return false;
+    }
+
+    /*
+        2Xn 보드에 타일을 놓는 방법
+        1,2로 n을 만드는 가지수.
+
+     */
+    public int tiling(int num) {//피보나치
+        int[] dp = new int[num + 1];
+        dp[0]=1;
+        dp[1]=1;
+        return dfs(dp, num);
+    }
+
+    public int dfs(int[] dp, int num){
+        if(dp[num]>0) return dp[num];
+        else return dp[num] = dfs(dp, num - 1) + dfs(dp, num - 2);
+    }
+
+    public int rotatedArraySearch(int[] rotated, int target) {
+        int lt=0;
+        int rt = rotated.length - 1;
+
+        while(lt<=rt){
+            int mid = (lt + rt) / 2;
+            if(rotated[mid]==target) return mid;
+            else if(rotated[lt]<rotated[mid]){
+                if(target < rotated[mid] && rotated[lt]<=target){
+                    rt = mid - 1;
+                }else{
+                    lt = mid + 1;
+                }
+            }else{
+                if(target<=rotated[rt] && rotated[mid]<target){
+                    lt=mid+1;
+                }else{
+                    rt=mid-1;
+                }
+            }
+        }
+        return -1;
+
+    }
+
+
     public static void main(String[] args) {
         Sol s = new Sol();
-        String result = s.readVertically(new String[]{
-                "hi",
-                "wolrd",
-        });
-        System.out.println(result);
+        System.out.println(s.rotatedArraySearch(new int[]{10, 11, 12, 3, 6, 7, 8, 9}, 11));
     }
 
 }
