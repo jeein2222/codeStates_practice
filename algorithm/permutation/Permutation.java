@@ -1,4 +1,4 @@
-package codeStates.algorithm;
+package codeStates.algorithm.permutation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
