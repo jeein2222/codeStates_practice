@@ -33,7 +33,6 @@ public class Permutation {
             permutation(resultList, itemList, result, depth + 1,n,r);
             itemList.add(i, result[depth]);
         }
-
     }
 
     public static void main(String[] args) {

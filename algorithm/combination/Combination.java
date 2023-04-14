@@ -1,8 +1,7 @@
-package codeStates.algorithm;
+package codeStates.algorithm.combination;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 
 //조합 nCr
 public class Combination {
