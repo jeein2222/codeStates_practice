@@ -1,4 +1,4 @@
-package codeStates.algorithm;
+package codeStates.algorithm.powerset;
 
 //멱집합
 /*
@@ -6,7 +6,6 @@ package codeStates.algorithm;
     -{a} + {b,c}의 멱집합
             - {b} + {c}의 멱집합
                     - {c} + {}
-
 
  */
 public class PowerSet {
