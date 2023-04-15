@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class BFS {
-
     public void bfs(int[][] graph, int v, boolean[] visited){
         Queue<Integer> q = new LinkedList<>();
         q.add(v);
