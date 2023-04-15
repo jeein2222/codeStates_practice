@@ -586,10 +586,68 @@ public class Sol {
 
     }
 
+    public ArrayList<String> powerSet(String str) {
+        Set<String> set = new HashSet<>();
+        for(int i=0;i<str.length();i++){
+            set.add(Character.toString(str.charAt(i)));
+        }
+        ArrayList<String> target = new ArrayList<>();
+        Iterator<String> it = set.iterator();
+        while(it.hasNext()){
+            target.add(it.next());
+        }
+        target.sort(Comparator.naturalOrder());
+
+        ArrayList<String> result = new ArrayList<>();
+        dfs(target, target.size(),0,result,new boolean[target.size()]);
+        result.sort(Comparator.naturalOrder());
+        return result;
+    }
+    public void dfs(ArrayList<String> target, int n,int k, ArrayList<String> result, boolean[] visited){
+        if(k==n){
+            String r = "";
+            for(int i=0;i<n;i++){
+                if(visited[i]) r += target.get(i);
+            }
+            result.add(r);
+            return;
+        }
+        visited[k]=false;
+        dfs(target, n,k + 1, result, visited);
+        visited[k]=true;
+        dfs(target, n,k + 1, result, visited);
+    }
+
+    public int orderOfPresentation(int N, int[] K) {
+        //발표 순서를 담는 변수
+        int order = 0;
+
+        boolean[] isUsed = new boolean[N + 1];
+
+        for (int i = 0; i < K.length; i++) {
+            int num = K[i];
+            isUsed[num]=true;
+            boolean[] candidates=Arrays.copyOfRange(isUsed, 1,num);
+            int validCnt=0;
+            for(boolean candidate:candidates){
+                if(!candidate) validCnt++;
+            }
+            int formerCnt = validCnt * factorial(N - i - 1);
+            order = order + formerCnt;
+        }
+
+        return order;
+
+    }
+    public int factorial(int n) {
+        if(n <= 1) return 1;
+        return n * factorial(n - 1);
+    }
 
     public static void main(String[] args) {
         Sol s = new Sol();
-        System.out.println(s.rotatedArraySearch(new int[]{10, 11, 12, 3, 6, 7, 8, 9}, 11));
+        System.out.println(s.orderOfPresentation(3, new int[]{2,3,1}));
+
     }
 
 }
